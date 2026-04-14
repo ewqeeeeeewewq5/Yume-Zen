@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yume Zen</title>
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LOGO BOX */
+.video-box {
+    width: 70%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LOGO IMAGE */
+.logo-media {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* สำคัญ: ไม่ครอปรูป */
+}
+
+/* KEYWORD INPUT */
+.keyword-box {
+    margin-top: 40px;
+}
+
+input {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 16px;
+    width: 260px;
+    text-align: center;
+    font-size: 14px;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGO -->
+<div class="video-box">
+    <img 
+        src="3dgifmaker08212.gif" 
+        alt="Yume Zen Logo"
+        class="logo-media"
+    >
+</div>
+
+<!-- KEYWORD -->
+<div class="keyword-box">
+    <input 
+        type="text" 
+        id="keyword" 
+        placeholder="Enter the keyword :" 
+        autocomplete="off"
+    >
+</div>
+
+<script>
+const correctKeyword = "This is Yume Zen*";
+const nextPage = "shop.html";
+
+const input = document.getElementById("keyword");
+
+input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        if (input.value.trim() === correctKeyword) {
+            window.location.href = nextPage;
+        } else {
+            alert("Login failed: keywords incorrect");
+            input.value = "";
+        }
+    }
+});
+</script>
+
+</body>
+</html>
